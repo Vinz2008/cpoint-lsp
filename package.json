@@ -1,5 +1,5 @@
 {
-  "name": "nrs-language-server",
+  "name": "cpoint-lsp",
   "description": "nano rust language server",
   "license": "MIT",
   "version": "1.5.0",
@@ -9,30 +9,30 @@
     "tower-lsp"
   ],
   "repository": {
-    "url": "https://github.com/IWANABETHATGUY/tower-lsp-boilerplate"
+    "url": "https://github.com/Vinz2008/cpoint-lsp"
   },
   "engines": {
     "vscode": "^1.66.0"
   },
   "enabledApiProposals": [],
   "activationEvents": [
-    "onLanguage:nrs"
+    "onLanguage:cpoint-lsp"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "languages": [
       {
-        "id": "nrs",
+        "id": "cpoint-lsp",
         "extensions": [
-          ".nrs"
+          ".cpoint"
         ]
       }
     ],
     "configuration": {
       "type": "object",
-      "title": "nrs-language-server",
+      "title": "cpoint-lsp",
       "properties": {
-        "nrs-language-server.trace.server": {
+        "cpoint-lsp.trace.server": {
           "type": "string",
           "scope": "window",
           "enum": [
@@ -60,9 +60,6 @@
     "test-compile": "tsc -p ./",
     "compile": "cross-env NODE_ENV=production tsc -b",
     "watch": "rm -rf dist && tsc -b -w",
-    "lint": "eslint src --ext ts",
-    "pretest": "npm run compile && npm run lint",
-    "test": "node ./out/test/runTest.js",
     "build": "webpack --config webpack.config.js",
     "package": "vsce package --no-dependencies",
     "publish": "vsce publish --no-dependencies"
