@@ -16,7 +16,8 @@
   },
   "enabledApiProposals": [],
   "activationEvents": [
-    "onLanguage:cpoint-lsp"
+    "onLanguage:cpoint-lsp",
+    "workspaceContains:*/build.toml"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -26,6 +27,36 @@
         "extensions": [
           ".cpoint"
         ]
+      }
+    ],
+    "taskDefinitions": [
+      {
+          "type": "cpoint-build",
+          "required": [
+              "command"
+          ],
+          "properties": {
+              "label": {
+                  "type": "string"
+              },
+              "command": {
+                  "type": "string"
+              },
+              "args": {
+                  "type": "array",
+                  "items": {
+                      "type": "string"
+                  }
+              },
+              "env": {
+                  "type": "object",
+                  "patternProperties": {
+                      ".+": {
+                          "type": "string"
+                      }
+                  }
+              }
+          }
       }
     ],
     "configuration": {

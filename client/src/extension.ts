@@ -35,7 +35,7 @@ let client: LanguageClient;
 // type a = Parameters<>;
 
 export async function activate(context: ExtensionContext) {
-  let disposable = commands.registerCommand("helloworld.helloWorld", async uri => {
+  let disposable = commands.registerCommand("cpoint compiler", async uri => {
     // The code you place here will be executed every time your command is executed
     // Display a message box to the user
     const url = Uri.parse('/home/vincent/cpoint-lsp/test.cpoint');
